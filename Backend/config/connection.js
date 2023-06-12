@@ -11,14 +11,14 @@ if (!HOST || !DATABASE || !USERNAME || !PASSWORD) {
   throw new Error("Database configuration missing!");
 }
 
-exports.dbConnection = async () => {
-  // Passing a connecting URI
-  const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
-    host: HOST,
-    dialect: "mysql",
-    logging: false,
-  });
+// Passing a connecting URI
+const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
+  host: HOST,
+  dialect: "mysql",
+  logging: false,
+});
 
+async () => {
   try {
     // Authenticating Sequelizer
     await sequelize.authenticate();
@@ -32,3 +32,5 @@ exports.dbConnection = async () => {
     throw error;
   }
 };
+
+module.exports = sequelize;

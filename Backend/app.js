@@ -13,7 +13,7 @@ require("dotenv").config();
 const app = express();
 
 // Database Connection
-require("./database/index").dbConnection();
+require("./config/connection");
 
 // JSON Parser
 app.use(bodyParser.json());

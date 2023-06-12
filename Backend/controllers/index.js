@@ -6,7 +6,7 @@ exports.getCategories = async (req, res) => {
     const categories = await Category.findAll({ include: Category });
     res.status(200).json({ categories });
   } catch (error) {
-    console.error(err);
+    console.error(error);
     res.status(500).json({ error: "An error occurred" });
   }
 };
@@ -33,7 +33,7 @@ exports.getCategoriesById = async (req, res) => {
     }
     res.status(200).json({ category });
   } catch (error) {
-    console.error(err);
+    console.error(error);
     res.status(500).json({ error: "An error occurred" });
   }
 };
@@ -53,7 +53,7 @@ exports.updateCategory = async (req, res) => {
     await category.save();
     res.status(200).json({ category });
   } catch (error) {
-    console.error(err);
+    console.error(error);
     res.status(500).json({ error: "An error occurred" });
   }
 };
@@ -70,7 +70,7 @@ exports.deleteCategory = async (req, res) => {
     await category.destroy();
     res.status(204).send(`Catogory ${category.name} deleted`);
   } catch (error) {
-    console.error(err);
+    console.error(error);
     res.status(500).json({ error: "An error occurred" });
   }
 };

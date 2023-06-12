@@ -2,9 +2,9 @@
 const { DataTypes } = require("sequelize");
 
 // Creating DB Object
-const sequelize = require("../database/index").dbConnection();
+const db = require("../config/connection");
 
-const Category = sequelize.define("Category", {
+const Category = db.define("Category", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
