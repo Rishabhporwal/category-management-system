@@ -37,3 +37,40 @@ exports.getCategoriesById = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
+
+// Update a category by ID
+exports.updateCategory = async (req, res) => {
+  try {
+    const categoryId = req.params.id;
+    const { name, parentId } = req.body;
+    const category = await Category.findByPk(categoryId);
+    if (!category) {
+      res.status(404).json({ error: "Category not found" });
+    }
+
+    category.name = name;
+    category.parentId = parentId;
+    await category.save();
+    res.status(200).json({ category });
+  } catch (error) {
+    console.error(err);
+    res.status(500).json({ error: "An error occurred" });
+  }
+};
+
+// Delete a category by ID
+exports.deleteCategory = async (req, res) => {
+  try {
+    const categoryId = req.params.id;
+    const category = await Category.findByPk(categoryId);
+    if (!category) {
+      res.status(404).json({ error: "Category not found" });
+    }
+
+    await category.destroy();
+    res.status(204).send(`Catogory ${category.name} deleted`);
+  } catch (error) {
+    console.error(err);
+    res.status(500).json({ error: "An error occurred" });
+  }
+};
