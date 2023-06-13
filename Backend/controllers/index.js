@@ -99,7 +99,7 @@ exports.createCategories = async (req, res) => {
 // Update a category by ID
 exports.updateCategory = async (req, res) => {
   try {
-    const categoryId = req.params.id;
+    const categoryId = Number(req.params.id);
     const { name, parentId } = req.body;
 
     // checking for name in request
@@ -191,7 +191,7 @@ exports.updateCategory = async (req, res) => {
 // Delete a category by ID
 exports.deleteCategory = async (req, res) => {
   try {
-    const parentId = req.params.id;
+    const parentId = Number(req.params.id);
 
     // Checking category id is not empty
     if (!id) {
