@@ -36,7 +36,7 @@ app.use(limiter);
 const indexRouter = require("./routes/index");
 
 // Routing Middlewares
-app.use("/v1/", indexRouter);
+app.use("/v1", indexRouter);
 
 /* Error Handling Middleware */
 app.use(function (err, req, res, next) {
