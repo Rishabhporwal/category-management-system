@@ -6,7 +6,7 @@ Building an application to manage E-Commerce Fashion categories in a tree struct
 
 https://documenter.getpostman.com/view/853749/2s93sf2Wbe
 
-# Data Used to Test Application can be imported to SQL Server using SQL file in base folder with name `ecommerce.sql`
+Data Used to Test Application can be imported to SQL Server using SQL file in base folder with name `ecommerce.sql`
 
 # Command to Run Migration Script
 
