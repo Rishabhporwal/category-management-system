@@ -7,6 +7,8 @@ exports.createTree = (categories) => {
       const { id, parentId } = category;
 
       child[id] = child[id] || [];
+
+      //Assigning child to new object
       const newCategory = Object.assign(
         category.get({
           plain: true,
@@ -16,6 +18,7 @@ exports.createTree = (categories) => {
         }
       );
 
+      // adding childrens to array
       parentId
         ? (child[parentId] = child[parentId] || []).push(newCategory)
         : parent.push(newCategory);

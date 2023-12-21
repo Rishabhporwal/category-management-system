@@ -38,16 +38,16 @@ exports.createCategories = async (req, res) => {
     if (parentId) {
       const parentData = await Category.findByPk(parentId);
 
-      // checking for parent exist
+      // checking for parent id is invalid
       if (!parentData) {
         // throwing 400 error
         return res.status(400).send({
-          message: "Parent category not available",
+          message: "Parent category is invalid",
         });
       }
 
       // checking for new category name and parent name is same or not
-      if (parent.name === name) {
+      if (parentData.name === name) {
         // throwing 400 error
         return res.status(400).send({
           message: "Category is already available",
